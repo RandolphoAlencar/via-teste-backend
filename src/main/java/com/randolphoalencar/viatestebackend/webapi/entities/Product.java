@@ -3,22 +3,37 @@ package com.randolphoalencar.viatestebackend.webapi.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.randolphoalencar.viatestebackend.webapi.entities.enums.OrderStatus;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_product")
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	
+	@Column(nullable = false)
 	private String name;
-	private Double price;
+	private OrderStatus orderStatus;
 
 	public Product() {
 
 	}
 
-	public Product(Integer id, String name, Double price) {
+	public Product(Integer id, String name, OrderStatus orderStatus) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.price = price;
+		this.orderStatus = orderStatus;
 	}
 
 	public Integer getId() {
@@ -37,17 +52,17 @@ public class Product implements Serializable {
 		this.name = name;
 	}
 
-	public Double getPrice() {
-		return price;
+	public OrderStatus getOrderStatus() {
+		return orderStatus;
 	}
 
-	public void setPrice(Double price) {
-		this.price = price;
+	public void setOrderStatus(OrderStatus orderStatus) {
+		this.orderStatus = orderStatus;
 	}
 
 	@Override
 	public String toString() {
-		return "Product [name=" + name + ", price=" + price + "]";
+		return "Product [name=" + name + ", status=" + orderStatus + "]";
 	}
 
 	@Override
