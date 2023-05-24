@@ -10,7 +10,7 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.time.Duration;
 
-public final class Controllers implements Serializable {
+public final class ShoppingCartControllers implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	

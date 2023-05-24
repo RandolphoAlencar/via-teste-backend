@@ -3,40 +3,9 @@ package com.randolphoalencar.viatestebackend.cmdapi.views;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import com.randolphoalencar.viatestebackend.cmdapi.controllers.Controllers;
+import com.randolphoalencar.viatestebackend.cmdapi.controllers.ShoppingCartControllers;
 
-public final class Views {
-
-	public static void printMainView() {
-
-		while (true) {
-			try {
-				Scanner sc = new Scanner(System.in);
-				System.out.println("\n\n\n       Digite o numero do serviço que deseja acessar: \n\n"
-						+ "1 - Carrinho de Compra \n" + "2 - Posto de Combustivel \n");
-
-				Integer index = sc.nextInt();
-
-				System.out.println("");
-
-				if (index == 1) {
-					printURLView();
-				} else if (index == 2) {
-					System.out.println("Posto de Gasolina Selecionado");
-				} else {
-					System.out.println("Digite uma opção válida!");
-				}
-			}
-
-			catch (InputMismatchException e) {
-				System.out.println("Entre com numero entre as opções validas");
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-				;
-			}
-		}
-	}
-	
+public final class ShoppingCartViews {
 
 	public static void printURLView() {
 
@@ -115,7 +84,7 @@ public final class Views {
 					sc.nextLine();
 
 					if (status == 0 || status == 1) {
-						System.out.println(Controllers.createProduct(url, name, status));
+						System.out.println(ShoppingCartControllers.createProduct(url, name, status));
 					} else {
 						System.out.println("\n Digite uma opção válida!");
 					}
@@ -139,7 +108,7 @@ public final class Views {
 
 						}
 
-						System.out.println("\n" + Controllers.getProduct(url));
+						System.out.println("\n" + ShoppingCartControllers.getProduct(url));
 
 					} else if (index == 3) {
 						exit = true;
@@ -169,7 +138,7 @@ public final class Views {
 					sc.nextLine();
 
 					if (status == 0 || status == 1) {
-						if (Controllers.updateProduct(url, name, status) == 200) {
+						if (ShoppingCartControllers.updateProduct(url, name, status) == 200) {
 							System.out.println("\n Produto " + id + " atualizado com Sucesso!");
 						} else {
 							System.out.println("\n Não foi possível atualizar o Produto " + id );
@@ -189,7 +158,7 @@ public final class Views {
 					sc.nextLine();
 					url = baseUrl.concat("/" + id);
 
-					if (Controllers.deleteProduct(url) == 200) {
+					if (ShoppingCartControllers.deleteProduct(url) == 200) {
 						System.out.println("\n Produto " + id + " deletado com Sucesso!");
 					} else {
 						System.out.println("\n Não foi possível deletar o Produto " + id);
