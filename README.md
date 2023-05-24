@@ -34,7 +34,7 @@ Projeto criado para teste pratico de backend da Via.
 
 ### Technologies Used
 * [Spring Boot](https://spring.io) O Spring Boot é um framework open source usado para facilitar as configurações de uma aplicação. 
-* [H2 Database](https://www.h2database.com/html/main.html) This is a NodeJS web application framework.
+* [H2 Database](https://www.h2database.com/html/main.html) H2 é um sistema de gerenciamento de banco de dados relacional escrito em Java. Ele pode ser incorporado em aplicativos Java ou executado no modo cliente-servidor.
 
 ### Authors
 * [Randolpho Alencar](https://github.com/RandolphoAlencar)
